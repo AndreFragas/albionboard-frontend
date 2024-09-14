@@ -1,0 +1,65 @@
+{
+  "template import local styles": {
+    "scope": "typescriptreact",
+    "prefix": "styles",
+    "body": ["import * as S from './styles'"],
+    "description": "import local styles"
+  },
+
+  "auto useState": {
+    "prefix": "state",
+    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($0);"],
+    "description": "useState"
+  },
+
+  "auto component": {
+    "scope": "typescriptreact",
+    "prefix": "component",
+    "body": [
+      "import React from 'react';",
+      "import * as S from './styles';\n",
+      "interface $1Props {}\n",
+      "export function $1(props: $1Props) {",
+      "\t$0",
+      "\treturn <></>;",
+      "}"
+    ]
+  },
+
+  "auto permissions": {
+    "scope": "typescriptreact",
+    "prefix": "abilities",
+    "body": ["const abilities = useAbility(AbilityContext);"]
+  },
+
+  "": {
+    "scope": "typescriptreact",
+    "prefix": "can",
+    "body": ["<Can I={''} a={''} ability={abilities}></Can>"]
+  },
+
+  "auto color": {
+    "prefix": "col",
+    "body": "${props => props.theme.colors.$1};"
+  },
+
+  "auto translate": {
+    "prefix": "translate",
+    "body": "const {translate} = useTranslate();"
+  },
+
+  "auto currency": {
+    "prefix": "currency",
+    "body": "const currency = getLocalStorage(window, 'currency');"
+  },
+
+  "auto toast": {
+    "prefix": "toast",
+    "body": "const toast = useToast();"
+  },
+
+  "auto confirm modal":{
+    "prefix": "confirmModal",
+    "body": "const confirmModal = useConfirmModal();"
+  }
+}

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  albionboard-front-hml:
+    build:
+      context: ../..
+      dockerfile: deploy/hml/Dockerfile
+      args:
+        - IMAGE_TAG=${IMAGE_TAG}
+    image: 'albionboard-front-hml:${IMAGE_TAG}'
+    ports:
+      - '3019:3019'
+    environment:
+      - NODE_ENV=development
